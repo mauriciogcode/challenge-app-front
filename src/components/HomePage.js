@@ -91,6 +91,7 @@ export default class HomePage extends Component {
             }).catch((error) => {
                 console.log("Error : ", error);
             })
+        this.setState({ ShowListBox: 1});
 
     }
 
@@ -109,22 +110,27 @@ export default class HomePage extends Component {
 
     handleDelete = (userId) => {
         const userIdToDelete = userId.userId;
-        crudservice.DeleteRecord(userIdToDelete)
-            .then((data) => {
-                console.log("Data : ", data);
-                this.ReadRecord(this.state.CurrentPage);
-            }).catch((error) => {
-                console.log("Error : ", error);
-                this.ReadRecord(this.state.CurrentPage);
-
-            })
+        const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar este registro?");
+        if (confirmDelete) {
+            crudservice.DeleteRecord(userIdToDelete)
+                .then((data) => {
+                    console.log("Data: ", data);
+                    this.ReadRecord(this.state.CurrentPage);
+                }).catch((error) => {
+                    console.log("Error: ", error);
+                    this.ReadRecord(this.state.CurrentPage);
+                });
+        } else {
+            console.log("Eliminación cancelada");
+        }
     }
+    
 
     handleFiles = (files) => {
         this.setState({ File: files[0] });
         this.setState({ FileExtension: files[0].name.split('.').pop() });
         this.setState({ fileUploaded: true });
-
+        this.setState({ ShowListBox: 1});
     };
 
     handleClick = (event) => {
@@ -157,13 +163,13 @@ export default class HomePage extends Component {
     handleUploadResponse = (response) => {
         console.log("Upload response:", response);
 
-        if (response && response.isSuccess === false && response.message) {
-            alert(response.message);
-        } else if (response && response.isSuccess === true) {
-            console.log("Data : ", response);
+        if (response.data && response.data.isSuccess === false && response.data.message) {
+            alert(response.data.message);
+        } else if (response.data && response.data.isSuccess === true) {
+            console.log("Data : ", response.data);
             this.ReadRecord(this.state.PageNumber);
         } else {
-            alert("Error in uploading file or file repeated. Please try again.");
+            alert("Error in uploading file. Refresh and try again.");
         }
     }
 
