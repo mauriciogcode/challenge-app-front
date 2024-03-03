@@ -1,0 +1,272 @@
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.MainContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .SubContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Box1 {
+      height: 36rem;
+      left: 5em;
+      margin: -12.8125em 0 0;
+      border-radius: 10px;
+      box-shadow: 0 0 12px 0 rgba(0, 0, 0, .1), 0 10px 30px 0 rgba(0, 0, 0, .2);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      z-index: 30;
+      width: 17.5em;
+      transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+      
+
+
+      .Input-Container {
+        width: 100%;
+        height: 100%;
+        @extend .flexCenter;
+        flex-direction: column;
+        
+
+        .flex-Container {
+          display: flex;
+          flex-direction: column;
+          width: 80%;
+          margin: 5px;
+
+          .Header {
+            @extend .flexCenter;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 40px 0;
+          }
+
+          .sub-flex-Container {
+            display: flex;
+            flex-direction: row-reverse;
+            margin: 0 0 10px 0;
+
+            .FileName {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-family: 'Roboto';
+              font-weight: 600;
+              width: 85%;
+              border-radius: 10px 0 0 10px;
+            }
+
+            .UploadButton {
+              width: 15%;
+              border-radius: 100%;
+
+              .Upload {
+                display: none;
+              }
+            }
+          }
+        }
+
+        .flex-button {
+          margin: 15px auto;
+        }
+      }
+    }
+
+   
+    .Box2 {
+      height: 35rem;
+      right: 5em;
+      margin: -12.8125em 0 0;
+      border-radius: 10px;
+      box-shadow: 0 0 12px 0 rgba(0, 0, 0, .1), 0 10px 30px 0 rgba(0, 0, 0, .2);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      z-index: 30;
+      width: 60%;
+      transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+      padding: 20px;
+      overflow-y: auto;
+
+      .data-flex {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        border-bottom: 0.5px solid lightgrey;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        margin: 5px 0 0 0;
+
+        .UserId {
+          flex: 3;
+          @extend .flexCenter;
+
+        }
+
+        .UserName {
+          flex: 15;
+          @extend .flexCenter;
+        }
+
+        .Team {
+          flex: 10;
+          @extend .flexCenter;
+        }
+
+        .State,
+        .Education {
+          flex: 10;
+          @extend .flexCenter;
+        }
+
+        .Age {
+          flex: 5;
+          @extend .flexCenter;
+        }
+
+        .Delete {
+          flex: 2;
+          margin: 6px 5px;
+        }
+      }
+    }
+  }
+  .Box3 {
+    height: 35rem;
+    right: 5em;
+    margin: -12.8125em 0 0;
+    border-radius: 10px;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, .1), 0 10px 30px 0 rgba(0, 0, 0, .2);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    position: absolute;
+    top: 50%;
+    z-index: 30;
+    width: 60%;
+    transition: transform .5s cubic-bezier(.77, 0, .175, 1);
+    padding: 20px;
+    overflow-y: auto;
+
+    .data-flex {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      border-bottom: 0.5px solid lightgrey;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      margin: 5px 0 0 0;
+
+
+      .UserName {
+        flex: 15;
+        @extend .flexCenter;
+      }
+
+      .Team {
+        flex: 10;
+        @extend .flexCenter;
+      }
+
+      .State,
+      .Education {
+        flex: 10;
+        @extend .flexCenter;
+      }
+
+      .Age {
+        flex: 5;
+        @extend .flexCenter;
+      }
+
+    }
+  
+  
+  }
+
+  
+
+  .MuiPaginationItem-page.Mui-selected {
+    background-color: #5268FF;
+  }
+  .MuiTypography-root.MuiTypography-body1{
+    width: 100%;
+  }
+
+  .UploadButton {
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .UploadIcon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #8A20C6;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .Upload {
+    display: none;
+  }
+
+  .UploadLabel {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+
+.Select-Container {
+  color: #5268FF;
+  list-style: none;
+  border-style: none;
+}
+
+
+.Label {
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  font-weight: 400;
+  font-family: Roboto, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
+  background-color: transparent;
+  background-position: 150% 50% !important;
+  font-size: .875em;
+  left: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  z-index: 2;
+  border-radius: 0;
+  box-shadow: 0 0 0;
+  padding: 1.1428571429em 8% 0 .7142857143em;
+  position: relative;
+
+
+}
+
